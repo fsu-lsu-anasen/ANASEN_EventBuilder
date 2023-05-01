@@ -95,6 +95,7 @@ namespace EventBuilder {
 
 		bool FillMap(const std::string& filename);
 		inline Iterator FindChannel(int key) { return m_cmap.find(key); }
+		inline Iterator Begin() { return m_cmap.begin(); }
 		inline Iterator End() { return m_cmap.end(); }
 	        inline bool IsValid() { return m_isValid; }	
 
