@@ -59,14 +59,14 @@ void Reconstruct(int runNumber)
 {
 	//set thresholds here
 	bool ibool = 0; //debug
-	double eQmin = 50.; // QQQ energy threshold (units: channel)
+	double eQmin = 100.; // QQQ energy threshold (units: channel)
 	double eBmin = 0.; // barc energy threshold (units: channel)
-	float phiRange = 45.; // +/- phi search range for inner & outer hits (units: degrees)
-	float activeZ = 58.5; // active area begins at this Z (currently position of aperture)
+	float activeZ = 0.; // active area begins at this Z (currently z=0)
+	double timeCut = 1000; //ns
 
 	//file names
-	std::string input_filename = "/Users/theefizzicist/Documents/Projects/18Ne-a-p/WorkingData/trees/run_"+std::to_string(runNumber)+"_18F_pruned.root";
-	std::string output_filename = "/Users/theefizzicist/Documents/Projects/18Ne-a-p/Analysis/run_"+std::to_string(runNumber)+"_18F_reconstructed.root";
+	std::string input_filename = "/Users/theefizzicist/Documents/Projects/18F-a-p/WorkingData/trees/run_"+std::to_string(runNumber)+"_18F_pruned.root";
+	std::string output_filename = "/Users/theefizzicist/Documents/Projects/18F-a-p/WorkingData/trees/run_"+std::to_string(runNumber)+"_18F_reconstructed.root";
 
 	std::cout<<"Reconstructing data from "<<input_filename<<std::endl;
 
@@ -88,7 +88,7 @@ void Reconstruct(int runNumber)
 	// ***** Output File *****
 	TFile* outputfile = TFile::Open(output_filename.c_str(), "RECREATE");
 	TTree *outTree = new TTree("tBarcQQQ","Barc+QQQ events for QQQmult=1-2");
-	std::cout<<"Writing to "<<input_filename<<std::endl;
+	std::cout<<"Writing to "<<output_filename<<std::endl;
 
 	//initialize variables for MyFill functions
 	std::unordered_map<std::string, TH1*> histMap;
@@ -658,24 +658,9 @@ void Reconstruct(int runNumber)
 	    		//only continue if dE hit above threshold
 	    		if(dEdet>-1)
 	    		{
-	    			// calculate IntZ if dE & E hit in same direction
-	    			float upper = dEphi+phiRange;
-	    			float lower = dEphi-phiRange;
-	    			bool sameDir; // "same direction" criteria
-	    			if(upper>360.) sameDir = ((Ephi>=lower)&&(Ephi<=360.)) || ((Ephi>=0.)&&(Ephi<=upper-360.)); //handles when search range >360
-	    			else if(lower<0.) sameDir = ((Ephi>=0.)&&(Ephi<=upper)) || ((Ephi>=lower+360.)&&(Ephi<=360.)); //handles when search range <0
-	    			else sameDir = (Ephi>=lower)&&(Ephi<=upper); //default search range
-	    			if(sameDir) IntZ = Ez - Erho*( (Ez-dEz)/(Erho-dErho) );
-
-	    			//if IntZ in active area, calculate IntTheta & IntPath (from interaction point to outer hit)
-	    			if( (IntZ>=activeZ) && (IntZ<m_Qz) )
-	    			{
-	    				IntTheta = std::atan(Erho/(Ez-IntZ))*180./M_PI; // convert to degrees
-	    				IntPath = (Ez-IntZ)/std::cos(IntTheta*M_PI/180.);
-	    				//TODO: calculate a straggling correction on path and theta
-	    				//TODO: call function here that calculates energy loss in gas
-	    				//TODO: sum final energy, gas energy loss, straggling energy loss and write to outTree
-	    			}
+					IntZ = Ez - Erho*( (Ez-dEz)/(Erho-dErho) );
+	    			IntTheta = std::atan(Erho/(Ez-IntZ))*180./M_PI; // convert to degrees
+	    			IntPath = (Ez-IntZ)/std::cos(IntTheta*M_PI/180.);
 
 	    			outTree->Fill();
 	    		} //end of loop requiring barc hit
@@ -741,7 +726,7 @@ void Reconstruct(int runNumber)
 			}
 
 			/*** apply cuts ***/
-			if( std::abs(EtFront-dEtime)<=1000 ) //time cut +/- 1000ns
+			if( std::abs(EtFront-dEtime)<=timeCut ) //time cut +/- ns
 			{
 				//fill histograms
 				name = "hBarcID_vs_QQQID_timeCut";
@@ -794,7 +779,7 @@ void Reconstruct(int runNumber)
 					MyFill(histMap,name,16,0,16,EstripF);
 				}
 
-				if( IntPath>-1 ) //active area cut (leave out non-physical interation points)
+				if( IntZ>=activeZ ) //active area cut (leave out non-physical interation points)
 				{
 					//fill histograms with time & acive area cuts
 					name = "hBarcID_vs_QQQID_timeCut_activeCut";

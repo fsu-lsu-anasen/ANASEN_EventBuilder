@@ -20,8 +20,9 @@
 R__LOAD_LIBRARY(../lib/libEVBDict.dylib);
 
 void Fangorn(int runNumber){
-std::string input_filename = "/Users/theefizzicist/Documents/Projects/18Ne-a-p/WorkingData/built/run_"+std::to_string(runNumber)+".root";
-std::string output_filename = "/Users/theefizzicist/Documents/Projects/18Ne-a-p/WorkingData/trees/run_"+std::to_string(runNumber)+"_18F.root";
+
+std::string input_filename = "/Users/theefizzicist/Documents/Projects/18F-a-p/WorkingData/built/run_"+std::to_string(runNumber)+".root";
+std::string output_filename = "/Users/theefizzicist/Documents/Projects/18F-a-p/WorkingData/trees/run_"+std::to_string(runNumber)+"_18F.root";
 
 std::cout<<"Processing data from "<<input_filename<<std::endl;
 
@@ -198,6 +199,7 @@ outT->Branch("SX11rho",&dSX[11].rho,"SX11rho[SX11Bmult]/F"); //rho from backs
 outT->Branch("QQQmult",&QQQmult,"QQQmult/I"); //store overall QQQ front multiplicity (for pruning)
 
 outT->Branch("Q0Fmult",&dQ[0].Fmult,"Q0Fmult/I"); outT->Branch("Q0Bmult",&dQ[0].Bmult,"Q0Bmult/I");
+outT->Branch("Q0Fchan",&dQ[0].Fchan,"Q0Fchan[Q0Fmult]/I"); outT->Branch("Q0Bchan",&dQ[0].Bchan,"Q0Bchan[Q0Bmult]/I");
 outT->Branch("Q0Fnum",&dQ[0].Fnum,"Q0Fnum[Q0Fmult]/I"); outT->Branch("Q0Bnum",&dQ[0].Bnum,"Q0Bnum[Q0Bmult]/I");
 outT->Branch("Q0Fenergy",&dQ[0].Fenergy,"Q0Fenergy[Q0Fmult]/D"); outT->Branch("Q0Benergy",&dQ[0].Benergy,"Q0Benergy[Q0Bmult]/D");
 outT->Branch("Q0FroughCal",&dQ[0].FroughCal,"Q0FroughCal[Q0Fmult]/D"); outT->Branch("Q0BroughCal",&dQ[0].BroughCal,"Q0BroughCal[Q0Bmult]/D");
@@ -207,6 +209,7 @@ outT->Branch("Q0rho",&dQ[0].rho,"Q0rho[Q0Fmult]/F"); //rho from fronts
 outT->Branch("Q0phi",&dQ[0].phi,"Q0phi[Q0Bmult]/F"); //phi from backs
 
 outT->Branch("Q1Fmult",&dQ[1].Fmult,"Q1Fmult/I"); outT->Branch("Q1Bmult",&dQ[1].Bmult,"Q1Bmult/I");
+outT->Branch("Q1Fchan",&dQ[1].Fchan,"Q1Fchan[Q1Fmult]/I"); outT->Branch("Q1Bchan",&dQ[1].Bchan,"Q1Bchan[Q1Bmult]/I");
 outT->Branch("Q1Fnum",&dQ[1].Fnum,"Q1Fnum[Q1Fmult]/I"); outT->Branch("Q1Bnum",&dQ[1].Bnum,"Q1Bnum[Q1Bmult]/I");
 outT->Branch("Q1Fenergy",&dQ[1].Fenergy,"Q1Fenergy[Q1Fmult]/D"); outT->Branch("Q1Benergy",&dQ[1].Benergy,"Q1Benergy[Q1Bmult]/D");
 outT->Branch("Q1FroughCal",&dQ[1].FroughCal,"Q1FroughCal[Q1Fmult]/D"); outT->Branch("Q1BroughCal",&dQ[1].BroughCal,"Q1BroughCal[Q1Bmult]/D");
@@ -216,6 +219,7 @@ outT->Branch("Q1rho",&dQ[1].rho,"Q1rho[Q1Fmult]/F"); //rho from fronts
 outT->Branch("Q1phi",&dQ[1].phi,"Q1phi[Q1Bmult]/F"); //phi from backs
 
 outT->Branch("Q2Fmult",&dQ[2].Fmult,"Q2Fmult/I"); outT->Branch("Q2Bmult",&dQ[2].Bmult,"Q2Bmult/I");
+outT->Branch("Q2Fchan",&dQ[2].Fchan,"Q2Fchan[Q2Fmult]/I"); outT->Branch("Q2Bchan",&dQ[2].Bchan,"Q2Bchan[Q2Bmult]/I");
 outT->Branch("Q2Fnum",&dQ[2].Fnum,"Q2Fnum[Q2Fmult]/I"); outT->Branch("Q2Bnum",&dQ[2].Bnum,"Q2Bnum[Q2Bmult]/I");
 outT->Branch("Q2Fenergy",&dQ[2].Fenergy,"Q2Fenergy[Q2Fmult]/D"); outT->Branch("Q2Benergy",&dQ[2].Benergy,"Q2Benergy[Q2Bmult]/D");
 outT->Branch("Q2FroughCal",&dQ[2].FroughCal,"Q2FroughCal[Q2Fmult]/D"); outT->Branch("Q2BroughCal",&dQ[2].BroughCal,"Q2BroughCal[Q2Bmult]/D");
@@ -225,6 +229,7 @@ outT->Branch("Q2rho",&dQ[2].rho,"Q2rho[Q2Fmult]/F"); //rho from fronts
 outT->Branch("Q2phi",&dQ[2].phi,"Q2phi[Q2Bmult]/F"); //phi from backs
 
 outT->Branch("Q3Fmult",&dQ[3].Fmult,"Q3Fmult/I"); outT->Branch("Q3Bmult",&dQ[3].Bmult,"Q3Bmult/I");
+outT->Branch("Q3Fchan",&dQ[3].Fchan,"Q3Fchan[Q3Fmult]/I"); outT->Branch("Q3Bchan",&dQ[3].Bchan,"Q3Bchan[Q3Bmult]/I");
 outT->Branch("Q3Fnum",&dQ[3].Fnum,"Q3Fnum[Q3Fmult]/I"); outT->Branch("Q3Bnum",&dQ[3].Bnum,"Q3Bnum[Q3Bmult]/I");
 outT->Branch("Q3Fenergy",&dQ[3].Fenergy,"Q3Fenergy[Q3Fmult]/D"); outT->Branch("Q3Benergy",&dQ[3].Benergy,"Q3Benergy[Q3Bmult]/D");
 outT->Branch("Q3FroughCal",&dQ[3].FroughCal,"Q3FroughCal[Q3Fmult]/D"); outT->Branch("Q3BroughCal",&dQ[3].BroughCal,"Q3BroughCal[Q3Bmult]/D");
@@ -239,6 +244,7 @@ outT->Branch("Q3phi",&dQ[3].phi,"Q3phi[Q3Bmult]/F"); //phi from backs
 outT->Branch("BarcMult",&BarcMult,"BarcMult/I"); //store overall Barc multiplicity (for pruning)
 
 outT->Branch("BU0Fmult",&dBU[0].Fmult,"BU0Fmult/I");
+outT->Branch("BU0Fchan",&dBU[0].Fchan,"BU0Fchan[BU0Fmult]/I");
 outT->Branch("BU0Fnum",&dBU[0].Fnum,"BU0Fnum[BU0Fmult]/I");
 outT->Branch("BU0Fenergy",&dBU[0].Fenergy,"BU0Fenergy[BU0Fmult]/D");
 outT->Branch("BU0time",&dBU[0].Ftime,"BU0time[BU0Fmult]/D"); //storing time from fronts
@@ -246,6 +252,7 @@ outT->Branch("BU0phi",&dBU[0].phi,"BU0phi[BU0Fmult]/F"); //phi from barc #
 outT->Branch("BU0z",&dBU[0].z,"BU0z[BU0Fmult]/F"); //z from fronts
 
 outT->Branch("BU1Fmult",&dBU[1].Fmult,"BU1Fmult/I");
+outT->Branch("BU1Fchan",&dBU[1].Fchan,"BU1Fchan[BU1Fmult]/I");
 outT->Branch("BU1Fnum",&dBU[1].Fnum,"BU1Fnum[BU1Fmult]/I");
 outT->Branch("BU1Fenergy",&dBU[1].Fenergy,"BU1Fenergy[BU1Fmult]/D");
 outT->Branch("BU1time",&dBU[1].Ftime,"BU1time[BU1Fmult]/D"); //storing time from fronts
@@ -253,6 +260,7 @@ outT->Branch("BU1phi",&dBU[1].phi,"BU1phi[BU1Fmult]/F"); //phi from barc #
 outT->Branch("BU1z",&dBU[1].z,"BU1z[BU1Fmult]/F"); //z from fronts
 
 outT->Branch("BU2Fmult",&dBU[2].Fmult,"BU2Fmult/I");
+outT->Branch("BU2Fchan",&dBU[2].Fchan,"BU2Fchan[BU2Fmult]/I");
 outT->Branch("BU2Fnum",&dBU[2].Fnum,"BU2Fnum[BU2Fmult]/I");
 outT->Branch("BU2Fenergy",&dBU[2].Fenergy,"BU2Fenergy[BU2Fmult]/D");
 outT->Branch("BU2time",&dBU[2].Ftime,"BU2time[BU2Fmult]/D"); //storing time from fronts
@@ -260,6 +268,7 @@ outT->Branch("BU2phi",&dBU[2].phi,"BU2phi[BU2Fmult]/F"); //phi from barc #
 outT->Branch("BU2z",&dBU[2].z,"BU2z[BU2Fmult]/F"); //z from fronts
 
 outT->Branch("BU3Fmult",&dBU[3].Fmult,"BU3Fmult/I");
+outT->Branch("BU3Fchan",&dBU[3].Fchan,"BU3Fchan[BU3Fmult]/I");
 outT->Branch("BU3Fnum",&dBU[3].Fnum,"BU3Fnum[BU3Fmult]/I");
 outT->Branch("BU3Fenergy",&dBU[3].Fenergy,"BU3Fenergy[BU3Fmult]/D");
 outT->Branch("BU3time",&dBU[3].Ftime,"BU3time[BU3Fmult]/D"); //storing time from fronts
@@ -267,6 +276,7 @@ outT->Branch("BU3phi",&dBU[3].phi,"BU3phi[BU3Fmult]/F"); //phi from barc #
 outT->Branch("BU3z",&dBU[3].z,"BU3z[BU3Fmult]/F"); //z from fronts
 
 outT->Branch("BU4Fmult",&dBU[4].Fmult,"BU4Fmult/I");
+outT->Branch("BU4Fchan",&dBU[4].Fchan,"BU4Fchan[BU4Fmult]/I");
 outT->Branch("BU4Fnum",&dBU[4].Fnum,"BU4Fnum[BU4Fmult]/I");
 outT->Branch("BU4Fenergy",&dBU[4].Fenergy,"BU4Fenergy[BU4Fmult]/D");
 outT->Branch("BU4time",&dBU[4].Ftime,"BU4time[BU4Fmult]/D"); //storing time from fronts
@@ -274,6 +284,7 @@ outT->Branch("BU4phi",&dBU[4].phi,"BU4phi[BU4Fmult]/F"); //phi from barc #
 outT->Branch("BU4z",&dBU[4].z,"BU4z[BU4Fmult]/F"); //z from fronts
 
 outT->Branch("BU5Fmult",&dBU[5].Fmult,"BU5Fmult/I");
+outT->Branch("BU5Fchan",&dBU[5].Fchan,"BU5Fchan[BU5Fmult]/I");
 outT->Branch("BU5Fnum",&dBU[5].Fnum,"BU5Fnum[BU5Fmult]/I");
 outT->Branch("BU5energy",&dBU[5].Fenergy,"BU5Fenergy[BU5Fmult]/D");
 outT->Branch("BU5time",&dBU[5].Ftime,"BU5time[BU5Fmult]/D"); //storing time from fronts
@@ -283,6 +294,7 @@ outT->Branch("BU5z",&dBU[5].z,"BU5z[BU5Fmult]/F"); //z from fronts
 // Barcelona downstream branches
 
 outT->Branch("BD0Fmult",&dBD[0].Fmult,"BD0Fmult/I");
+outT->Branch("BD0Fchan",&dBD[0].Fchan,"BD0Fchan[BD0Fmult]/I");
 outT->Branch("BD0Fnum",&dBD[0].Fnum,"BD0Fnum[BD0Fmult]/I");
 outT->Branch("BD0Fenergy",&dBD[0].Fenergy,"BD0Fenergy[BD0Fmult]/D");
 outT->Branch("BD0time",&dBD[0].Ftime,"BD0time[BD0Fmult]/D"); //storing time from fronts
@@ -290,6 +302,7 @@ outT->Branch("BD0phi",&dBD[0].phi,"BD0phi[BD0Fmult]/F"); //phi from barc #
 outT->Branch("BD0z",&dBD[0].z,"BD0z[BD0Fmult]/F"); //z from fronts
 
 outT->Branch("BD1Fmult",&dBD[1].Fmult,"BD1Fmult/I");
+outT->Branch("BD1Fchan",&dBD[1].Fchan,"BD1Fchan[BD1Fmult]/I");
 outT->Branch("BD1Fnum",&dBD[1].Fnum,"BD1Fnum[BD1Fmult]/I");
 outT->Branch("BD1Fenergy",&dBD[1].Fenergy,"BD1Fenergy[BD1Fmult]/D");
 outT->Branch("BD1time",&dBD[1].Ftime,"BD1time[BD1Fmult]/D"); //storing time from fronts
@@ -297,6 +310,7 @@ outT->Branch("BD1phi",&dBD[1].phi,"BD1phi[BD1Fmult]/F"); //phi from barc #
 outT->Branch("BD1z",&dBD[1].z,"BD1z[BD1Fmult]/F"); //z from fronts
 
 outT->Branch("BD2Fmult",&dBD[2].Fmult,"BD2Fmult/I");
+outT->Branch("BD2Fchan",&dBD[2].Fchan,"BD2Fchan[BD2Fmult]/I");
 outT->Branch("BD2Fnum",&dBD[2].Fnum,"BD2Fnum[BD2Fmult]/I");
 outT->Branch("BD2Fenergy",&dBD[2].Fenergy,"BD2Fenergy[BD2Fmult]/D");
 outT->Branch("BD2time",&dBD[2].Ftime,"BD2time[BD2Fmult]/D"); //storing time from fronts
@@ -304,6 +318,7 @@ outT->Branch("BD2phi",&dBD[2].phi,"BD2phi[BD2Fmult]/F"); //phi from barc #
 outT->Branch("BD2z",&dBD[2].z,"BD2z[BD2Fmult]/F"); //z from fronts
 
 outT->Branch("BD3Fmult",&dBD[3].Fmult,"BD3Fmult/I");
+outT->Branch("BD3Fchan",&dBD[3].Fchan,"BD3Fchan[BD3Fmult]/I");
 outT->Branch("BD3Fnum",&dBD[3].Fnum,"BD3Fnum[BD3Fmult]/I");
 outT->Branch("BD3Fenergy",&dBD[3].Fenergy,"BD3Fenergy[BD3Fmult]/D");
 outT->Branch("BD3time",&dBD[3].Ftime,"BD3time[BD3Fmult]/D"); //storing time from fronts
@@ -311,6 +326,7 @@ outT->Branch("BD3phi",&dBD[3].phi,"BD3phi[BD3Fmult]/F"); //phi from barc #
 outT->Branch("BD3z",&dBD[3].z,"BD3z[BD3Fmult]/F"); //z from fronts
 
 outT->Branch("BD4Fmult",&dBD[4].Fmult,"BD4Fmult/I");
+outT->Branch("BD4Fchan",&dBD[4].Fchan,"BD4Fchan[BD4Fmult]/I");
 outT->Branch("BD4Fnum",&dBD[4].Fnum,"BD4Fnum[BD4Fmult]/I");
 outT->Branch("BD4Fenergy",&dBD[4].Fenergy,"BD4Fenergy[BD4Fmult]/D");
 outT->Branch("BD4time",&dBD[4].Ftime,"BD4time[BD4Fmult]/D"); //storing time from fronts
@@ -318,6 +334,7 @@ outT->Branch("BD4phi",&dBD[4].phi,"BD4phi[BD4Fmult]/F"); //phi from barc #
 outT->Branch("BD4z",&dBD[4].z,"BD4z[BD4Fmult]/F"); //z from fronts
 
 outT->Branch("BD5Fmult",&dBD[5].Fmult,"BD5Fmult/I");
+outT->Branch("BD5Fchan",&dBD[5].Fchan,"BD5Fchan[BD5Fmult]/I");
 outT->Branch("BD5Fnum",&dBD[5].Fnum,"BD5Fnum[BD5Fmult]/I");
 outT->Branch("BD5Fenergy",&dBD[5].Fenergy,"BD5Fenergy[BD5Fmult]/D");
 outT->Branch("BD5time",&dBD[5].Ftime,"BD5time[BD5Fmult]/D"); //storing time from fronts
@@ -421,78 +438,58 @@ if(ibool) std::cout << std::endl;
 // fill QQQs
 for (int i=0;i<4;i++){
 
-	//fixes the fact that QQQ2&3 are swapped (for 18F runs)
-	int iQQQ, iWedge, iRing;
-	switch(i){
-		case 0:
-			iQQQ = i;
-			break;
-		case 1:
-			iQQQ = i;
-			break;
-		case 2:
-			iQQQ = 3;
-			break;
-		case 3:
-			iQQQ = 2;
-			break;
-	}
-	//pulling data from fqqq[i] but storing as dQ[iQQQ]
-	if(ibool) std::cout << "in QQQ loop, detector " << iQQQ << std::endl;
+	//global ring and wedge numbers
+	int iWedge, iRing;
+
+	if(ibool) std::cout << "in QQQ loop, detector " << i << std::endl;
 	for(auto& ring : event->fqqq[i].rings){
-		if(ibool) std::cout << "ring mult = " << dQ[iQQQ].Fmult << std::endl;
+		if(ibool) std::cout << "ring mult = " << dQ[i].Fmult << std::endl;
 		if(ring.energy>0){
 			//store energy & timestamp
-			dQ[iQQQ].Fenergy[dQ[iQQQ].Fmult] = ring.energy;
-			dQ[iQQQ].FroughCal[dQ[iQQQ].Fmult] = ring.energy*m_roughCal;
-			dQ[iQQQ].Ftime[dQ[iQQQ].Fmult] = ring.timestamp;
-			if(ibool) std::cout << "dQ["<<iQQQ<<"].Fenergy["<<dQ[iQQQ].Fmult<<"] = " << dQ[iQQQ].Fenergy[dQ[iQQQ].Fmult] << std::endl;
+			dQ[i].Fenergy[dQ[i].Fmult] = ring.energy;
+			dQ[i].FroughCal[dQ[i].Fmult] = ring.energy*m_roughCal;
+			dQ[i].Ftime[dQ[i].Fmult] = ring.timestamp;
+			dQ[i].Fchan[dQ[i].Fmult] = ring.globalChannel;
+			if(ibool) std::cout << "dQ["<<i<<"].Fenergy["<<dQ[i].Fmult<<"] = " << dQ[i].Fenergy[dQ[i].Fmult] << std::endl;
 			//assign Fnum to iRing (local strip number)
-			if(iQQQ==0 || iQQQ==2){//copying corrections for QQQ0&2 from wedges; forcing 0 to 15 to count same direction (outward?)
-				iRing = 15-m_lookUp[ring.globalChannel]; //iRing is local ring #
-			}else{
-				iRing = m_lookUp[ring.globalChannel]; //iRing is local ring # (assuming QQQ1&3 count outward)
-			}
-			dQ[iQQQ].Fnum[dQ[iQQQ].Fmult] = iRing;
-			if(ibool) std::cout << "dQ["<<iQQQ<<"].Fnum["<<dQ[iQQQ].Fmult<<"] = " << dQ[iQQQ].Fnum[dQ[iQQQ].Fmult] << std::endl;
+			iRing = m_lookUp[ring.globalChannel]; //iRing is local ring #
+			dQ[i].Fnum[dQ[i].Fmult] = iRing;
+			if(ibool) std::cout << "dQ["<<i<<"].Fnum["<<dQ[i].Fmult<<"] = " << dQ[i].Fnum[dQ[i].Fmult] << std::endl;
 			//calculate physical coordinate(s)
 			float rho = 50.1 + (iRing+0.5)*(99.-50.1)/16.; //rho in mm (assuming 0to15 counts outward)
 			//store physical coordinate(s)
-			dQ[iQQQ].rho[dQ[iQQQ].Fmult] = rho; //get rho from rings
+			dQ[i].rho[dQ[i].Fmult] = rho; //get rho from rings
 			//print coordinates
-			if(ibool) std::cout << "rho for ring "<<iRing<<" of QQQ "<<iQQQ<<" = " << dQ[iQQQ].rho[dQ[iQQQ].Fmult] << std::endl;
+			if(ibool) std::cout << "rho for ring "<<iRing<<" of QQQ "<<i<<" = " << dQ[i].rho[dQ[i].Fmult] << std::endl;
         	//increment multiplicity
-			dQ[iQQQ].Fmult++;
+			dQ[i].Fmult++;
 			QQQmult++;
-			if(ibool) std::cout << "ring mult after loop = " << dQ[iQQQ].Fmult << std::endl;
+			if(ibool) std::cout << "ring mult after loop = " << dQ[i].Fmult << std::endl;
 	//still inside ring loop
 		}}
-	//pulling data from fqqq[i] but storing as dQ[iQQQ]
+	//pulling data from fqqq[i] but storing as dQ[i]
 	for(auto& wedge : event->fqqq[i].wedges){
-		if(ibool) std::cout << "wedge mult = " << dQ[iQQQ].Bmult << std::endl;
+		if(ibool) std::cout << "wedge mult = " << dQ[i].Bmult << std::endl;
 		if(wedge.energy>0){
 			//store energy & timestamp
-			dQ[iQQQ].Benergy[dQ[iQQQ].Bmult] = wedge.energy;
-			dQ[iQQQ].BroughCal[dQ[iQQQ].Bmult] = wedge.energy*m_roughCal;
-			dQ[iQQQ].Btime[dQ[iQQQ].Bmult] = wedge.timestamp;
-			if(ibool) std::cout << "dQ["<<iQQQ<<"].Benergy["<<dQ[iQQQ].Bmult<<"] = " << dQ[iQQQ].Benergy[dQ[iQQQ].Bmult] << std::endl;
+			dQ[i].Benergy[dQ[i].Bmult] = wedge.energy;
+			dQ[i].BroughCal[dQ[i].Bmult] = wedge.energy*m_roughCal;
+			dQ[i].Btime[dQ[i].Bmult] = wedge.timestamp;
+			dQ[i].Bchan[dQ[i].Bmult] = wedge.globalChannel;
+			if(ibool) std::cout << "dQ["<<i<<"].Benergy["<<dQ[i].Bmult<<"] = " << dQ[i].Benergy[dQ[i].Bmult] << std::endl;
 			//assign Fnum to iWedge (local strip number)
-			if(iQQQ==0 || iQQQ==2){//QQQ0&2 corrected so all wedges count CCW 0 to 15
-				iWedge = 15-m_lookUp[wedge.globalChannel]; //iWedge is local wedge #
-			}else{
-				iWedge = m_lookUp[wedge.globalChannel]; //iWedge is local wedge #
-			}
-			dQ[iQQQ].Bnum[dQ[iQQQ].Bmult] = iWedge;
-			if(ibool) std::cout << "dQ["<<iQQQ<<"].Bnum["<<dQ[iQQQ].Bmult<<"] = " << dQ[iQQQ].Bnum[dQ[iQQQ].Bmult] << std::endl;
+			iWedge = m_lookUp[wedge.globalChannel]; //iWedge is local wedge #
+			dQ[i].Bnum[dQ[i].Bmult] = iWedge;
+			if(ibool) std::cout << "dQ["<<i<<"].Bnum["<<dQ[i].Bmult<<"] = " << dQ[i].Bnum[dQ[i].Bmult] << std::endl;
 			//calculate physical coordinate(s)
-			float phi = 267.158-(90.*iQQQ) - (iWedge+0.5)*87.158/16.; //phi in degrees (center of wedge, includes dead space)
+			float phi = 267.158-(90.*i) - (iWedge+0.5)*87.158/16.; //phi in degrees (center of wedge, includes dead space)
 			//store physical coordinate(s)
-			dQ[iQQQ].phi[dQ[iQQQ].Bmult] = (phi < 0.) ? (phi + 360.) : (phi); //get phi from wedges; if phi < 0, then add 360
+			dQ[i].phi[dQ[i].Bmult] = (phi < 0.) ? (phi + 360.) : (phi); //get phi from wedges; if phi < 0, then add 360
 			//print coordinates
-			if(ibool) std::cout << "phi for wedge "<<iWedge<<" of QQQ "<<iQQQ<<" = " << dQ[iQQQ].phi[dQ[iQQQ].Bmult] << std::endl;
+			if(ibool) std::cout << "phi for wedge "<<iWedge<<" of QQQ "<<i<<" = " << dQ[i].phi[dQ[i].Bmult] << std::endl;
 			//increment multiplicity
-			dQ[iQQQ].Bmult++;
-			if(ibool) std::cout << "wedge mult after loop = " << dQ[iQQQ].Bmult << std::endl;
+			dQ[i].Bmult++;
+			if(ibool) std::cout << "wedge mult after loop = " << dQ[i].Bmult << std::endl;
 	//still inside wedge loop
 		}}
 } //end of QQQ loop
@@ -508,14 +505,15 @@ for(int i=0;i<6;i++){
 			//store energy & timestamp 
 			dBD[i].Fenergy[dBD[i].Fmult] = front.energy;
 			dBD[i].Ftime[dBD[i].Fmult] = front.timestamp;
+			dBD[i].Fchan[dBD[i].Fmult] = front.globalChannel;
 			if(ibool) std::cout << "dBD["<<i<<"].Fenergy["<<dBD[i].Fmult<<"] = " << dBD[i].Fenergy[dBD[i].Fmult] << std::endl;
 			//assign Fnum to iFront (local strip number)
-			iFront = m_lookUp[front.globalChannel]; //counts 0 to 31 from downstream to upstream (decreasing z)
+			iFront = m_lookUp[front.globalChannel]; //counts 0 to 31 from upstream to downstream (increasing z)
 			dBD[i].Fnum[dBD[i].Fmult] = iFront;
 			if(ibool)std::cout << "dBD["<<i<<"].Fnum["<<dBD[i].Fmult<<"] = " << dBD[i].Fnum[dBD[i].Fmult] << std::endl;
 			//calculate physical coordinate(s)
 			float phi = 270. - (60.*i);
-			float z = m_BDZoffset - 2*(iFront+0.5); // mm, m_BDZoffset is distance from z=0 to downstream edge of strip 0
+			float z = m_BDZoffset - 2*(31-iFront+0.5); // mm, m_BDZoffset is distance from z=0 to downstream edge of strip 31
 			//store physical coordinate(s)
 			dBD[i].phi[dBD[i].Fmult] = (phi < 0.) ? (phi + 360.) : (phi); //if phi < 0, then add 360
 			dBD[i].z[dBD[i].Fmult] = z;
@@ -534,6 +532,7 @@ for(int i=0;i<6;i++){
 			//store energy & timestamp
 			dBU[i].Fenergy[dBU[i].Fmult] = front.energy;
 			dBU[i].Ftime[dBU[i].Fmult] = front.timestamp;
+			dBU[i].Fchan[dBU[i].Fmult] = front.globalChannel;
 			if(ibool) std::cout << "dBU["<<i<<"].Fenergy["<<dBU[i].Fmult<<"] = " << dBU[i].Fenergy[dBU[i].Fmult] << std::endl;
 			//assign Fnum to iFront (local strip number)
 			iFront = m_lookUp[front.globalChannel]; //counts 0 to 31 from upstream to downstream (increasing z)
