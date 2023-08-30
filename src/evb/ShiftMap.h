@@ -32,6 +32,8 @@ namespace EventBuilder {
 		bool is_set;
 	
 		std::unordered_map<int, int64_t> m_map;
+
+		int m_channels_per_board = 64; //Number of channels per digitzer board, important for generating id!
 	
 	};
 }

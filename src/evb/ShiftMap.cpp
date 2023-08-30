@@ -63,16 +63,16 @@ namespace EventBuilder {
 			input>>shift;
 			if(temp == "all")
 			{ //keyword to set all channels in this board to same shift
-				for(int i=0; i<16; i++)
+				for(int i=0; i<m_channels_per_board; i++)
 				{
-					gchan = board*16 + i;
+					gchan = board*m_channels_per_board + i;
 					m_map[gchan] = shift;
 				}
 			}
 			else
 			{
 				channel = stoi(temp);
-				gchan = channel + board*16;
+				gchan = channel + board*m_channels_per_board;
 				m_map[gchan] = shift;
 			}
 		}
