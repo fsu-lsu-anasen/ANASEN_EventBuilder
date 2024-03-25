@@ -168,7 +168,7 @@ void EVBMainFrame::HandleMenuSelection(int id)
 
 void EVBMainFrame::DoOpenWorkdir()
 {
-	new TGFileDialog(gClient->GetRoot(), this, kDOpen, fInfo);
+	new TGFileDialog(gClient->GetRoot(), this, kFDOpen, fInfo);
 	if(fInfo->fFilename)
 	{
 		std::string path_wtrailer = fInfo->fFilename + std::string("/");
